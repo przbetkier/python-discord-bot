@@ -4,7 +4,6 @@ from discord.ext.tasks import loop
 from tasks import reminder
 from discord.ext import commands
 
-
 load_dotenv()
 
 SERVER_NAME = os.getenv('SERVER_NAME')
@@ -33,5 +32,10 @@ async def reminder_before():
     await bot.wait_until_ready()
 
 
-reminder_task.start()
-bot.run(TOKEN)
+def main():
+    reminder_task.start()
+    bot.run(TOKEN)
+
+
+if __name__ == "__main__":
+    main()
