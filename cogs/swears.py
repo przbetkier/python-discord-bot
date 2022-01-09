@@ -4,7 +4,7 @@ from discord.ext.commands import Cog
 
 class Swears(commands.Cog):
     def __init__(self, client):
-        self.client = client  # sets the client variable so we can use it in cogs
+        self.client = client
 
     @commands.Cog.listener()
     async def on_ready(self):
@@ -16,7 +16,7 @@ class Swears(commands.Cog):
         words = message.content.split()
 
         has_swears = any(word in swears for word in words)
-        if has_swears:
+        if has_swears and message.author != self.client.user:
             await message.channel.send('Please, behave {0}! 😡'.format(message.author.mention))
 
 

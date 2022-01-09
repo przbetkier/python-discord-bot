@@ -32,6 +32,8 @@ class Music(Cog):
             }],
         }
         with YoutubeDL(youtube_dl_options) as ydl:
+            # remove cache due to this bug [https://stackoverflow.com/questions/61249612/error-unable-to-download-video-data-http-error-403-forbidden-while-using-yout]
+            ydl.cache.remove()
             ydl.download([url])
         for file in os.listdir("./"):
             if file.endswith(".mp3"):
@@ -41,7 +43,7 @@ class Music(Cog):
     @commands.command()
     async def leave(self, ctx):
         voice = discord.utils.get(self.client.voice_clients, guild=ctx.guild)
-        if voice.is_connected():
+        if voice is not None and voice.is_connected():
             await voice.disconnect()
         else:
             await ctx.send("The bot is not connected to a voice channel.")

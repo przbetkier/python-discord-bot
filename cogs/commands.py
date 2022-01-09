@@ -2,14 +2,15 @@ from discord.ext import commands
 from discord.ext.commands import Cog
 
 config = {
-    '!cat': 'Kitty photo for everybody!',
-    '!quote': 'Returns random quote',
-    '!remind [reminder, delta]': 'Helps you remember about important stuff!',
-    '!play [url]': 'Play music on voice channel',
-    '!pause': 'Pause music on voice channel',
-    '!resume': 'Resume music on voice channel',
-    '!stop': 'Stop music on voice channel',
-    '!leave': 'Disconnect bot from voice channel',
+    'cat': 'Kitty photo for everybody!',
+    'curses [add|remove|list] [curse]': 'Manage curses list',
+    'quote': 'Returns random quote',
+    'remind [reminder, delta]': 'Helps you remember about important stuff!',
+    'play [url]': 'Play music from YouTube on voice channel',
+    'pause': 'Pause music on voice channel',
+    'resume': 'Resume music on voice channel',
+    'stop': 'Stop music on voice channel',
+    'leave': 'Disconnect bot from voice channel',
 }
 
 
