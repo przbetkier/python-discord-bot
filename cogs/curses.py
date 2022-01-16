@@ -45,7 +45,7 @@ def list_curses():
 def add_curse(curse):
     # 'a' for append mode while editing file
     with open("curses.txt", "a") as file:
-        file.write("{0}\n".format(curse))
+        file.write("{0}\n".format(curse.lower()))
 
 
 def remove_curse(curse, curses_list):
@@ -54,7 +54,7 @@ def remove_curse(curse, curses_list):
     # rewrite file
     with open("curses.txt", "w") as file:
         for curse in curses_to_save:
-            file.write("{0}\n".format(curse))
+            file.write("{0}\n".format(curse.lower()))
 
 
 def setup(client):

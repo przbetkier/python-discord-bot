@@ -4,3 +4,4 @@ requests~=2.26.0
 python-dotenv==0.19.2
 youtube_dl==2021.12.17
 ffmpeg==1.4
+yt-dlp==2021.12.27

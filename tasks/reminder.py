@@ -11,9 +11,9 @@ async def remind(client):
         now = datetime.datetime.now()
         for row_number, row in enumerate(reader, start=1):
             remind_at = datetime.datetime.fromtimestamp(int(row['time']))
-            channel_id = int(row['channel'])
-            channel = client.get_channel(channel_id)
             if now > remind_at:
+                channel_id = int(row['channel'])
+                channel = client.get_channel(channel_id)
                 await channel.send('Hey, {0}! Friendly reminder: _{1}_ 📅 '.format(row['user'], row['reminder']))
                 rows_to_remove.append(row_number)
             else:

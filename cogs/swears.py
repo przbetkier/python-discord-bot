@@ -6,16 +6,16 @@ class Swears(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.Cog.listener()
+    @Cog.listener()
     async def on_ready(self):
         print("Swears cog ready")
 
     @Cog.listener("on_message")
     async def warn(self, message):
         swears = load_swears()
-        words = message.content.split()
+        words = map(lambda word: word.lower(), message.content.split())
 
-        has_swears = any(word in swears for word in words)
+        has_swears = any(word in swears for word in words) and not message.content.startswith("!curses")
         if has_swears and message.author != self.client.user:
             await message.channel.send('Please, behave {0}! 😡'.format(message.author.mention))
 
